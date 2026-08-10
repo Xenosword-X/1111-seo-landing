@@ -1479,7 +1479,7 @@ p {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 0.15rem;
+  gap: 0.75rem;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
@@ -1489,6 +1489,25 @@ p {
 
 .page-nav__inner::-webkit-scrollbar {
   display: none;
+}
+
+.page-nav__sections {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.page-nav__aside {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+  flex: 0 0 auto;
+  padding-left: 0.5rem;
+  border-left: 1px solid var(--color-border);
 }
 
 .page-nav__link {
@@ -1502,7 +1521,7 @@ p {
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 160ms var(--ease), color 160ms var(--ease);
+  transition: background 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
 }
 
 .page-nav__link:hover,
@@ -1516,8 +1535,30 @@ p {
   background: color-mix(in srgb, var(--color-accent) 12%, transparent);
 }
 
+.page-nav__page {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  background: #fff;
+  transition: background 160ms var(--ease), border-color 160ms var(--ease), color 160ms var(--ease);
+}
+
+.page-nav__page:hover,
+.page-nav__page:focus-visible {
+  background: color-mix(in srgb, var(--color-accent) 8%, #fff);
+  border-color: var(--color-accent);
+}
+
 .page-nav__link--cta {
-  margin-left: auto;
+  margin-left: 0;
   color: var(--color-on-primary);
   background: var(--color-accent);
 }
@@ -1533,18 +1574,31 @@ p {
     width: 100%;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 0.2rem 0.1rem;
+    gap: 0.35rem 0.5rem;
     overflow: visible;
     padding: 0.45rem 0.75rem;
   }
 
-  .page-nav__link {
-    padding: 0.35rem 0.55rem;
-    font-size: 0.8125rem;
+  .page-nav__sections {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.2rem 0.1rem;
   }
 
-  .page-nav__link--cta {
+  .page-nav__aside {
     margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 0.15rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .page-nav__link,
+  .page-nav__page {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.8125rem;
   }
 }
 

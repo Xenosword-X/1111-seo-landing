@@ -250,6 +250,62 @@
     }
   }
 
+  // Page section nav: scroll spy active state
+  const sectionNav = document.querySelector(".page-nav__sections");
+  if (sectionNav) {
+    const links = Array.from(sectionNav.querySelectorAll('a[href^="#"]'));
+    const items = links
+      .map((link) => {
+        const id = decodeURIComponent(link.getAttribute("href").slice(1));
+        const section = document.getElementById(id);
+        return section ? { link, section } : null;
+      })
+      .filter(Boolean);
+
+    const setActive = (activeLink) => {
+      links.forEach((link) => {
+        const on = link === activeLink;
+        link.classList.toggle("is-active", on);
+        if (on) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    const navOffset = () => {
+      const nav = document.querySelector(".page-nav");
+      return (nav ? nav.getBoundingClientRect().height : 64) + 12;
+    };
+
+    const updateFromScroll = () => {
+      if (!items.length) return;
+      const y = navOffset();
+      let current = items[0];
+      for (let i = 0; i < items.length; i += 1) {
+        const top = items[i].section.getBoundingClientRect().top;
+        if (top - y <= 0) current = items[i];
+      }
+      setActive(current.link);
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateFromScroll();
+        ticking = false;
+      });
+    };
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => setActive(link));
+    });
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    updateFromScroll();
+  }
+
   // 1111 blackbar: 服務總覽 dropdown
   const dropdown = document.querySelector(".blackbar .nav-item.dropdown");
   const dropdownToggle = document.querySelector(".blackbar .dropdown-toggle");
