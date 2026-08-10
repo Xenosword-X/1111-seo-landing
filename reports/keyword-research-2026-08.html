@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>1111 SEO Landing｜關鍵字調查報告</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 16mm 14mm;
+    }
+    :root {
+      --ink: #15202b;
+      --muted: #5b6773;
+      --line: #d9e0e7;
+      --bg: #f6f8fa;
+      --brand: #c8102e;
+      --ok: #0f7a4a;
+      --warn: #9a6700;
+      --soft: #eef3f7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif;
+      font-size: 11.5px;
+      line-height: 1.55;
+      background: #fff;
+    }
+    h1, h2, h3 { margin: 0 0 8px; line-height: 1.25; }
+    h1 { font-size: 22px; letter-spacing: 0.02em; }
+    h2 {
+      font-size: 14px;
+      border-left: 3px solid var(--brand);
+      padding-left: 8px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+    }
+    h3 { font-size: 12.5px; margin-top: 14px; }
+    p { margin: 0 0 8px; color: var(--ink); }
+    .muted { color: var(--muted); }
+    .small { font-size: 10.5px; }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 14px;
+    }
+    .eyebrow {
+      color: var(--brand);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .meta {
+      text-align: right;
+      color: var(--muted);
+      font-size: 10.5px;
+      min-width: 180px;
+    }
+    .meta strong { color: var(--ink); display: block; font-size: 12px; margin-bottom: 2px; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 12px 0 4px;
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .card .label { color: var(--muted); font-size: 10px; margin-bottom: 2px; }
+    .card .value { font-size: 18px; font-weight: 800; }
+    .card .hint { color: var(--muted); font-size: 10px; margin-top: 2px; }
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 1px 8px;
+      font-size: 10px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+    .pill-ok { background: #e8f7ef; color: var(--ok); border-color: #b7e4cb; }
+    .pill-warn { background: #fff6dd; color: var(--warn); border-color: #f0d78a; }
+    .pill-no { background: #f4f5f7; color: #6b7280; border-color: #d7dbe1; }
+    .pill-brand { background: #fdecee; color: var(--brand); border-color: #f3b4bd; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 4px;
+      font-size: 10.5px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 6px 7px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: var(--soft);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    tr:nth-child(even) td { background: #fbfcfd; }
+    .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    ul { margin: 6px 0 8px 18px; padding: 0; }
+    li { margin-bottom: 4px; }
+    .box {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 8px 0;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .footer {
+      margin-top: 18px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .avoid td:first-child { color: #6b7280; }
+    .page-break { break-before: page; page-break-before: always; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <div class="eyebrow">1111 商搜網 · SEO Landing</div>
+      <h1>關鍵字調查報告（台灣）</h1>
+      <p class="muted small">目標頁面：https://trade.1111.com.tw/seo　｜　資料來源：Ahrefs Keywords Explorer / SERP Overview</p>
+    </div>
+    <div class="meta">
+      <strong>報告日期</strong>
+      2026-08-10<br />
+      國家／引擎：TW · Google<br />
+      站點 DR：80
+    </div>
+  </header>
+
+  <div class="cards">
+    <div class="card">
+      <div class="label">網域強度</div>
+      <div class="value">DR 80</div>
+      <div class="hint">trade.1111.com.tw</div>
+    </div>
+    <div class="card">
+      <div class="label">建議主詞</div>
+      <div class="value" style="font-size:15px">SEO服務</div>
+      <div class="hint">350／月 · KD 2</div>
+    </div>
+    <div class="card">
+      <div class="label">流量副主詞</div>
+      <div class="value" style="font-size:15px">SEO公司</div>
+      <div class="hint">1,000／月 · KD 3</div>
+    </div>
+    <div class="card">
+      <div class="label">AI 頁主詞</div>
+      <div class="value" style="font-size:15px">AI SEO</div>
+      <div class="hint">500／月 · KD 3</div>
+    </div>
+  </div>
+
+  <h2>1. 推薦結論（先看這段）</h2>
+  <div class="box">
+    <p><strong>落地頁應以「SEO服務」為主詞、以「SEO公司」為流量副主詞。</strong></p>
+    <p class="muted">原因：此頁是服務銷售頁，不是教學文。應優先選「商業意圖強、難度低、且 SERP 已有服務頁能排進前十」的關鍵字，才能較快上第一頁並帶來諮詢。</p>
+  </div>
+  <ul>
+    <li><strong>先衝第一頁：</strong>SEO服務（KD 2）。SERP 中已有 DR 僅 23 的服務頁排進前三，意圖最吻合。</li>
+    <li><strong>再搶搜尋量：</strong>SEO公司（月量 1,000、KD 3）。量最大，但 SERP 偏「公司比較／怎麼選」文章，需用方案、案例、費用說明回應。</li>
+    <li><strong>AI 頁獨立：</strong>ai-seo.html 主打 AI SEO，不與主頁搶同一主詞。</li>
+  </ul>
+
+  <h2>2. 為什麼這樣選（推薦原因）</h2>
+  <div class="two-col">
+    <div class="box">
+      <h3>選詞原則</h3>
+      <ul>
+        <li>商業／交易意圖優先（想找服務、公司、報價）</li>
+        <li>KD 盡量 ≤ 15，兼顧一定流量</li>
+        <li>SERP 必須允許「服務落地頁」出現</li>
+        <li>對齊現有產品：官網 SEO、Google 商家、商搜網曝光</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>刻意不主攻</h3>
+      <ul>
+        <li><strong>SEO優化</strong>（1,800／KD 24）：量最大，但幾乎是教學懶人包</li>
+        <li><strong>SEO／SEO是什麼</strong>：過寬、資訊意圖</li>
+        <li><strong>GEO 單獨</strong>：流量多半不是「生成式引擎優化」</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>3. 關鍵字地圖（建議鎖定）</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>頁面</th>
+        <th>角色</th>
+        <th>關鍵字</th>
+        <th class="num">月搜尋量</th>
+        <th class="num">KD</th>
+        <th>意圖</th>
+        <th>建議用法</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>/seo/</td>
+        <td><span class="pill pill-brand">主詞</span></td>
+        <td><strong>SEO服務</strong></td>
+        <td class="num">350</td>
+        <td class="num">2</td>
+        <td>商業＋在地</td>
+        <td>Title／H1 核心；最快上第一頁</td>
+      </tr>
+      <tr>
+        <td>/seo/</td>
+        <td><span class="pill pill-ok">流量副主詞</span></td>
+        <td><strong>SEO公司</strong></td>
+        <td class="num">1,000</td>
+        <td class="num">3</td>
+        <td>商業＋在地</td>
+        <td>Title 後半；用方案／案例回應比較意圖</td>
+      </tr>
+      <tr>
+        <td>/seo/</td>
+        <td><span class="pill pill-ok">次要</span></td>
+        <td>SEO優化公司</td>
+        <td class="num">150</td>
+        <td class="num">2</td>
+        <td>商業＋在地</td>
+        <td>H2／內文；服務頁友好</td>
+      </tr>
+      <tr>
+        <td>/seo/</td>
+        <td><span class="pill pill-ok">次要</span></td>
+        <td>SEO公司推薦</td>
+        <td class="num">250</td>
+        <td class="num">2</td>
+        <td>商業</td>
+        <td>信任／案例區；勿硬塞比較文格式</td>
+      </tr>
+      <tr>
+        <td>/seo/</td>
+        <td><span class="pill pill-warn">轉換輔助</span></td>
+        <td>SEO顧問、SEO報價、SEO費用、SEO價格</td>
+        <td class="num">100–150</td>
+        <td class="num">0–2</td>
+        <td>商業</td>
+        <td>方案區、FAQ、CTA 自然覆蓋</td>
+      </tr>
+      <tr>
+        <td>/seo/</td>
+        <td><span class="pill pill-warn">產品對齊</span></td>
+        <td>關鍵字優化、Google商家優化</td>
+        <td class="num">40–200</td>
+        <td class="num">3–16</td>
+        <td>商業／資訊混合</td>
+        <td>對齊既有服務模組用語</td>
+      </tr>
+      <tr>
+        <td>/seo/ai-seo.html</td>
+        <td><span class="pill pill-brand">主詞</span></td>
+        <td><strong>AI SEO</strong></td>
+        <td class="num">500</td>
+        <td class="num">3</td>
+        <td>資訊為主</td>
+        <td>AI 頁 Title／H1；搭配 FAQ 搶精華摘要</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. 種子關鍵字實查摘要</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>關鍵字</th>
+        <th class="num">月量</th>
+        <th class="num">KD</th>
+        <th class="num">CPC(USD)</th>
+        <th>評估</th>
+        <th>結論</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>seo服務</td>
+        <td class="num">350</td>
+        <td class="num">2</td>
+        <td class="num">1.80</td>
+        <td>意圖最吻合服務頁；弱站服務頁已進前三</td>
+        <td><span class="pill pill-brand">主攻</span></td>
+      </tr>
+      <tr>
+        <td>seo公司</td>
+        <td class="num">1,000</td>
+        <td class="num">3</td>
+        <td class="num">1.70</td>
+        <td>商業量大；SERP 偏比較文</td>
+        <td><span class="pill pill-ok">副主攻</span></td>
+      </tr>
+      <tr>
+        <td>seo公司推薦</td>
+        <td class="num">250</td>
+        <td class="num">2</td>
+        <td class="num">2.50</td>
+        <td>比較意圖強，可作次要詞</td>
+        <td><span class="pill pill-ok">次要</span></td>
+      </tr>
+      <tr>
+        <td>seo優化公司</td>
+        <td class="num">150</td>
+        <td class="num">2</td>
+        <td class="num">2.00</td>
+        <td>低難度商業詞</td>
+        <td><span class="pill pill-ok">次要</span></td>
+      </tr>
+      <tr>
+        <td>ai seo</td>
+        <td class="num">500</td>
+        <td class="num">3</td>
+        <td class="num">0.70</td>
+        <td>AI 頁主詞；SERP 多教學</td>
+        <td><span class="pill pill-ok">AI頁主攻</span></td>
+      </tr>
+      <tr>
+        <td>seo報價／費用／價格</td>
+        <td class="num">100–150</td>
+        <td class="num">0–1</td>
+        <td class="num">—</td>
+        <td>極低 KD，適合方案區</td>
+        <td><span class="pill pill-warn">輔助</span></td>
+      </tr>
+      <tr>
+        <td>seo顧問</td>
+        <td class="num">100</td>
+        <td class="num">2</td>
+        <td class="num">1.60</td>
+        <td>低競爭轉詢問詞</td>
+        <td><span class="pill pill-warn">輔助</span></td>
+      </tr>
+      <tr>
+        <td>關鍵字優化</td>
+        <td class="num">200</td>
+        <td class="num">16</td>
+        <td class="num">1.10</td>
+        <td>中等難度產品詞</td>
+        <td><span class="pill pill-warn">輔助</span></td>
+      </tr>
+      <tr class="avoid">
+        <td>seo優化</td>
+        <td class="num">1,800</td>
+        <td class="num">24</td>
+        <td class="num">1.20</td>
+        <td>指南文主導，錯配服務 LP</td>
+        <td><span class="pill pill-no">不主攻</span></td>
+      </tr>
+      <tr class="avoid">
+        <td>seo／seo是什麼</td>
+        <td class="num">4,000–15,000</td>
+        <td class="num">22–29</td>
+        <td class="num">—</td>
+        <td>過寬資訊意圖</td>
+        <td><span class="pill pill-no">不主攻</span></td>
+      </tr>
+      <tr class="avoid">
+        <td>geo（單獨）</td>
+        <td class="num">5,400</td>
+        <td class="num">1</td>
+        <td class="num">0.02</td>
+        <td>多為地理／其他義</td>
+        <td><span class="pill pill-no">避開</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h2>5. SERP 驗證重點</h2>
+  <h3>seo服務（台灣）— 為什麼適合當主詞</h3>
+  <table>
+    <thead>
+      <tr>
+        <th class="num">#</th>
+        <th>頁面類型觀察</th>
+        <th class="num">DR</th>
+        <th>代表網址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num">3</td>
+        <td><strong>服務頁</strong>（最關鍵證據）</td>
+        <td class="num">23</td>
+        <td>plusx.com.tw/seo/seo-services/</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td>服務說明文</td>
+        <td class="num">40</td>
+        <td>seo5000.com.tw/seo/seo-service/</td>
+      </tr>
+      <tr>
+        <td class="num">9</td>
+        <td>服務頁（SEO/GEO）</td>
+        <td class="num">58</td>
+        <td>frankknow.com/seo-service/</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="small muted">解讀：此詞 SERP 容納服務落地頁；弱站也能進前段。1111 商搜網 DR 80，以服務頁切入勝算高。</p>
+
+  <h3>seo公司（台灣）— 為什麼只能當副主詞</h3>
+  <table>
+    <thead>
+      <tr>
+        <th class="num">#</th>
+        <th>頁面類型觀察</th>
+        <th class="num">DR</th>
+        <th>代表網址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num">2</td>
+        <td>選公司／費用教學文</td>
+        <td class="num">49</td>
+        <td>yesharris.com/.../before-seo-agency/</td>
+      </tr>
+      <tr>
+        <td class="num">3–4</td>
+        <td>公司比較／推薦列表</td>
+        <td class="num">25–72</td>
+        <td>91app、growthmarketing 等</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td>服務／選商導向頁</td>
+        <td class="num">75</td>
+        <td>ibest.tw/seo-detail/seo-company/</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="small muted">解讀：流量大、KD 低，但使用者多在「比較廠商」。落地頁需提供方案、案例、費用區間與諮詢 CTA，才能對上意圖。</p>
+
+  <h2>6. On-page 建議方向（下一階段）</h2>
+  <div class="box">
+    <p><strong>建議 Title 方向：</strong></p>
+    <p>1111 SEO服務｜專業SEO公司協助官網與 Google 商家關鍵字進第一頁</p>
+    <ul>
+      <li>H1 以「SEO服務」為核心，副標帶入流量／排名利益</li>
+      <li>方案區自然覆蓋：SEO報價、SEO費用、SEO顧問</li>
+      <li>案例區支援「SEO公司／SEO公司推薦」的信任意圖</li>
+      <li>ai-seo.html 獨立主打「AI SEO」，FAQ 維持 FAQ schema</li>
+    </ul>
+  </div>
+
+  <h2>7. 資料與限制說明</h2>
+  <ul class="small muted">
+    <li>流量與 KD 來自 Ahrefs 台灣資料（2026-08-10 查詢）；KD 為估算，仍以 SERP 意圖為準。</li>
+    <li>CPC 為 Ahrefs 美元估價（由美分換算），僅供商業熱度參考。</li>
+    <li>上線路徑已確認為 <strong>https://trade.1111.com.tw/seo</strong>；正式索引仍需主站 robots／GSC 配合。</li>
+    <li>本報告僅涵蓋關鍵字策略；尚未含完整內容改寫與外鏈規劃。</li>
+  </ul>
+
+  <footer class="footer">
+    <div>1111 商搜網 SEO Landing｜關鍵字調查報告</div>
+    <div>Confidential · For internal planning</div>
+  </footer>
+</body>
+</html>
