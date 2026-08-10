@@ -1,8 +1,28 @@
 (() => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Scroll reveal
+  // Scroll reveal → Animate.css
   const reveals = document.querySelectorAll(".reveal");
+
+  const playReveal = (el) => {
+    const name = el.getAttribute("data-animate") || "fadeInUp";
+    const delay = el.getAttribute("data-delay");
+    const duration = el.getAttribute("data-duration") || "0.6s";
+    const animClass = `animate__${name}`;
+
+    if (delay) el.style.setProperty("--animate-delay", delay);
+    el.style.setProperty("--animate-duration", duration);
+
+    el.classList.add("is-visible", "animate__animated", animClass);
+
+    const cleanup = (event) => {
+      if (event.target !== el) return;
+      el.classList.remove("animate__animated", animClass);
+      el.removeEventListener("animationend", cleanup);
+    };
+    el.addEventListener("animationend", cleanup);
+  };
+
   if (reduceMotion) {
     reveals.forEach((el) => el.classList.add("is-visible"));
   } else if ("IntersectionObserver" in window) {
@@ -10,7 +30,7 @@
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            playReveal(entry.target);
             io.unobserve(entry.target);
           }
         });
@@ -19,7 +39,7 @@
     );
     reveals.forEach((el) => io.observe(el));
   } else {
-    reveals.forEach((el) => el.classList.add("is-visible"));
+    reveals.forEach(playReveal);
   }
 
   // Contact form → FormSubmit → swordsgod@staff.1111.com.tw

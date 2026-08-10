@@ -198,8 +198,6 @@ p {
 
 .hero__brand {
   margin: 0 0 0.85rem;
-  opacity: 0;
-  animation: rise 700ms var(--ease) 80ms forwards;
 }
 
 .brand-1111 {
@@ -214,8 +212,6 @@ p {
 
 .hero h1 {
   margin: 0 0 1.25rem;
-  opacity: 0;
-  animation: rise 700ms var(--ease) 240ms forwards;
 }
 
 .hero__title-main,
@@ -244,8 +240,6 @@ p {
   padding: 0;
   display: grid;
   gap: 0.65rem;
-  opacity: 0;
-  animation: rise 700ms var(--ease) 340ms forwards;
 }
 
 .hero__benefits li {
@@ -271,8 +265,6 @@ p {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.85rem 1.25rem;
-  opacity: 0;
-  animation: rise 700ms var(--ease) 460ms forwards;
 }
 
 .hero__cta-link {
@@ -300,11 +292,6 @@ p {
 
 .hero .btn--primary:hover {
   background: #ffe070;
-}
-
-@keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 900px) {
@@ -420,39 +407,6 @@ p {
   object-fit: contain;
   filter: none;
 }
-
-.logo-grid .reveal--fly {
-  opacity: 0;
-  transform: translate3d(0, 48px, 0) scale(0.92);
-  transition:
-    opacity 520ms var(--ease),
-    transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.logo-grid .reveal--fly:nth-child(odd) {
-  transform: translate3d(-36px, 36px, 0) scale(0.92);
-}
-
-.logo-grid .reveal--fly:nth-child(even) {
-  transform: translate3d(36px, 36px, 0) scale(0.92);
-}
-
-.logo-grid .reveal--fly.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
-}
-
-.logo-grid .reveal--fly:nth-child(1) { transition-delay: 0ms; }
-.logo-grid .reveal--fly:nth-child(2) { transition-delay: 60ms; }
-.logo-grid .reveal--fly:nth-child(3) { transition-delay: 120ms; }
-.logo-grid .reveal--fly:nth-child(4) { transition-delay: 180ms; }
-.logo-grid .reveal--fly:nth-child(5) { transition-delay: 240ms; }
-.logo-grid .reveal--fly:nth-child(6) { transition-delay: 80ms; }
-.logo-grid .reveal--fly:nth-child(7) { transition-delay: 140ms; }
-.logo-grid .reveal--fly:nth-child(8) { transition-delay: 200ms; }
-.logo-grid .reveal--fly:nth-child(9) { transition-delay: 260ms; }
-.logo-grid .reveal--fly:nth-child(10) { transition-delay: 320ms; }
 
 /* Plans */
 .plans {
@@ -1125,31 +1079,30 @@ p {
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
 }
 
-/* Reveal */
+/* Reveal + Animate.css */
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 400ms var(--ease), transform 400ms var(--ease);
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+
+  .reveal {
+    opacity: 1 !important;
+  }
+
   .reveal,
-  .reveal--fly,
-  .logo-grid .reveal--fly,
-  .hero__brand,
   .hero h1,
   .hero__benefits,
-  .hero__cta {
-    opacity: 1 !important;
-    transform: none !important;
+  .hero__cta,
+  .animate__animated {
     animation: none !important;
     transition: none !important;
+    transform: none !important;
   }
 }
 
