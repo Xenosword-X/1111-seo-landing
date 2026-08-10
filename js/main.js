@@ -42,6 +42,63 @@
     reveals.forEach(playReveal);
   }
 
+  // FAQ accordion (single-open, all closed by default)
+  const accordion = document.querySelector("[data-accordion]");
+  if (accordion) {
+    const items = Array.from(accordion.querySelectorAll(".faq__item"));
+
+    const setOpen = (item, open) => {
+      const btn = item.querySelector(".faq__btn");
+      const panel = item.querySelector(".faq__panel");
+      if (!btn || !panel) return;
+
+      const isOpen = item.classList.contains("is-open");
+      if (open === isOpen) return;
+
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+
+      if (open) {
+        panel.hidden = false;
+        if (reduceMotion) {
+          item.classList.add("is-open");
+          return;
+        }
+        requestAnimationFrame(() => {
+          item.classList.add("is-open");
+        });
+      } else {
+        item.classList.remove("is-open");
+        if (reduceMotion) {
+          panel.hidden = true;
+          return;
+        }
+        const onEnd = (event) => {
+          if (event.target !== panel) return;
+          if (!item.classList.contains("is-open")) panel.hidden = true;
+          panel.removeEventListener("transitionend", onEnd);
+        };
+        panel.addEventListener("transitionend", onEnd);
+        window.setTimeout(() => {
+          if (!item.classList.contains("is-open")) panel.hidden = true;
+          panel.removeEventListener("transitionend", onEnd);
+        }, 320);
+      }
+    };
+
+    items.forEach((item) => {
+      const btn = item.querySelector(".faq__btn");
+      if (!btn) return;
+
+      btn.addEventListener("click", () => {
+        const willOpen = !item.classList.contains("is-open");
+        items.forEach((other) => {
+          if (other !== item) setOpen(other, false);
+        });
+        setOpen(item, willOpen);
+      });
+    });
+  }
+
   // Contact form → FormSubmit → swordsgod@staff.1111.com.tw
   const form = document.getElementById("contact-form");
   const success = document.getElementById("contact-success");
