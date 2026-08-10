@@ -129,42 +129,78 @@
 
   // Stat count-up
   const nums = document.querySelectorAll("[data-count]");
-  if (!nums.length) return;
 
   const animateCount = (el) => {
     const target = Number(el.getAttribute("data-count")) || 0;
+    const suffix = el.getAttribute("data-suffix") || "";
+    const format = (n) => Math.round(n).toLocaleString("en-US") + suffix;
+
     if (reduceMotion) {
-      el.textContent = target.toLocaleString("en-US");
+      el.textContent = format(target);
       return;
     }
 
-    const duration = 1200;
+    const duration = 1400;
     const start = performance.now();
 
     const tick = (now) => {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(target * eased).toLocaleString("en-US");
+      el.textContent = format(target * eased);
       if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = format(target);
     };
 
     requestAnimationFrame(tick);
   };
 
-  if ("IntersectionObserver" in window) {
-    const countIo = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateCount(entry.target);
-            countIo.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
-    nums.forEach((el) => countIo.observe(el));
-  } else {
-    nums.forEach(animateCount);
+  if (nums.length) {
+    if ("IntersectionObserver" in window) {
+      const countIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              countIo.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+      nums.forEach((el) => countIo.observe(el));
+    } else {
+      nums.forEach(animateCount);
+    }
+  }
+
+  // 1111 blackbar: 服務總覽 dropdown
+  const dropdown = document.querySelector(".blackbar .nav-item.dropdown");
+  const dropdownToggle = document.querySelector(".blackbar .dropdown-toggle");
+  if (dropdown && dropdownToggle) {
+    dropdownToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      const open = dropdown.classList.toggle("show");
+      dropdownToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("show");
+        dropdownToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  // 1111 blackbar: FB分享
+  const fbShare = document.getElementById("fb-share");
+  if (fbShare) {
+    fbShare.addEventListener("click", (e) => {
+      e.preventDefault();
+      const url = encodeURIComponent(window.location.href);
+      window.open(
+        "https://www.facebook.com/sharer/sharer.php?u=" + url,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    });
   }
 })();

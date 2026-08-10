@@ -8,9 +8,67 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/1111-chrome.css" />
 </head>
 <body>
+  <!-- 黑Bar STAR (from trade.1111.com.tw) -->
+  <!-- 黑Bar for Mobile STAR-->
+  <div class="blackbar container-fluid d-block d-sm-none">
+    <div class="row justify-content-end align-items-center">
+      <ul>
+        <li>
+          <span>
+            <a href="https://trade.1111.com.tw/Login.aspx">會員登入</a>
+          </span>
+        </li>
+        <li><span><a class="dropdown-item disabled">&nbsp;|&nbsp;</a></span></li>
+        <li>
+          <span>
+            <a href="https://trade.1111.com.tw/Reg.aspx">加入會員</a>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 黑Bar for Mobile END-->
+  <!-- 黑Bar for PC STAR-->
+  <div class="blackbar container-fluid d-none d-sm-block">
+    <div class="row justify-content-between align-items-center">
+      <p>
+        <a href="https://www.1111.com.tw/" title="1111人力銀行" target="_blank" rel="noopener">
+          <img src="images/1111_head-logo.png" title="1111人力銀行" alt="1111人力銀行" />
+          <span>人力銀行</span>
+        </a>
+        <span>&nbsp;|&nbsp;歡迎來到<a href="https://trade.1111.com.tw/" target="_self">商搜網</a></span>
+      </p>
+      <ul>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            服務總覽
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbardrop">
+            <a class="dropdown-header">商搜推薦</a>
+            <a class="dropdown-item" href="https://trade.1111.com.tw/company.aspx">找公司</a>
+            <a class="dropdown-item" href="https://trade.1111.com.tw/goods.aspx">找商品</a>
+            <a class="dropdown-item" href="https://trade.1111.com.tw/NewsList.aspx">搜情報</a>
+            <a class="dropdown-item" href="https://trade.1111.com.tw/Events.aspx">活動特輯</a>
+            <a class="dropdown-item" href="https://trade.1111.com.tw/Login.aspx">廠商登入</a>
+            <a class="dropdown-item" href="https://trade.1111.com.tw/Reg.aspx">廠商註冊</a>
+            <a class="dropdown-item" href="https://www.1111.com.tw/talents/epaper/ePaperIntro.asp?epaperNo=6">訂閱電子報</a>
+            <a class="dropdown-item" href="https://docs.google.com/forms/d/1Bm0TAOIRC0gWYsR9g8ffPAaGZcdRbR0TsGsvaoNr2Gg/viewform?c=0&amp;w=1">滿意度調查</a>
+            <a class="dropdown-item ad-link" href="https://trade.1111.com.tw/AD/TradeAD_Home1.aspx">登廣告</a>
+          </div>
+        </li>
+        <li>&nbsp;|&nbsp;<span><a href="https://trade.1111.com.tw/ContactUs" target="_self">聯絡我們</a></span></li>
+        <li>&nbsp;|&nbsp;<span><a href="javascript:void(0);" id="fb-share" target="_self">FB分享</a></span></li>
+      </ul>
+    </div>
+  </div>
+  <!-- 黑Bar for PC END-->
+  <!-- 黑Bar END-->
+
   <!-- S1 Hero -->
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="hero__visual" aria-hidden="true">
@@ -19,9 +77,9 @@
     <div class="hero__layout">
       <div class="hero__spacer" aria-hidden="true"></div>
       <div class="hero__copy">
-        <p class="hero__brand">
+        <!-- <p class="hero__brand">
           <img class="brand-1111" src="images/logo-1111.png" alt="1111人力銀行" width="320" height="80" />
-        </p>
+        </p> -->
         <h1 id="hero-title">
           <span class="hero__title-main">SEO優化</span>
           <span class="hero__title-sub">讓網站流量源源不絕</span>
@@ -46,11 +104,11 @@
       <h2 id="stats-title" class="reveal">累積數百網站優化經驗，含 Google 商家優化</h2>
       <div class="stats__grid">
         <div class="stat reveal">
-          <p class="stat__num">500+</p>
+          <p class="stat__num" data-count="500" data-suffix="+">0+</p>
           <p class="stat__label">合作企業</p>
         </div>
         <div class="stat reveal">
-          <p class="stat__num">5000+</p>
+          <p class="stat__num" data-count="5000" data-suffix="+">0+</p>
           <p class="stat__label">組穩定 Google 第一頁排名</p>
         </div>
       </div>
@@ -61,20 +119,58 @@
   <section class="section logos" aria-labelledby="logos-title">
     <div class="container">
       <h2 id="logos-title" class="reveal">各大產業 SEO 排名操作經驗</h2>
-      <p class="section__sub reveal">依實際服務廠商統整：金屬加工、機械設備、餐飲食品、建築工程等多元產業</p>
-      <ul class="logo-grid reveal" role="list">
-        <li>CNC金屬加工</li>
-        <li>機械設備</li>
-        <li>鋼材扣件</li>
-        <li>印刷包裝</li>
-        <li>餐飲食品</li>
-        <li>建築防水</li>
-        <li>水電空調</li>
-        <li>牙醫醫美</li>
-        <li>汽機車服務</li>
-        <li>清潔環保</li>
-        <li>傢俱廚具</li>
-        <li>物流運輸</li>
+      <p class="section__sub reveal">依實際服務廠商統整：機械設備、餐飲食品、牙醫醫美、運輸租車等多元產業</p>
+      <ul class="logo-grid" role="list">
+        <li class="reveal reveal--fly">
+          <a href="https://www.shinwe.com.tw/" target="_blank" rel="noopener" title="翔暐企業有限公司">
+            <img src="images/logos/shinwe.png" alt="翔暐企業有限公司" loading="lazy" width="308" height="42" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://www.goldenchef.com.tw/" target="_blank" rel="noopener" title="金牌大師食品科技">
+            <img src="images/logos/goldenchef.png" alt="金牌大師食品科技" loading="lazy" width="200" height="80" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://www.fed.com.tw/" target="_blank" rel="noopener" title="遠東牙醫診所">
+            <img src="images/logos/fed.png" alt="遠東牙醫診所" loading="lazy" width="240" height="80" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://www.yousheng.com.tw/" target="_blank" rel="noopener" title="祐聖機械">
+            <img src="images/logos/yousheng.png" alt="祐聖機械" loading="lazy" width="240" height="56" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://sunbus-tw.com/" target="_blank" rel="noopener" title="京典通運">
+            <img src="images/logos/sunbus.png" alt="京典通運" loading="lazy" width="240" height="80" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://www.iws.com.tw/" target="_blank" rel="noopener" title="IWS愛旺租車">
+            <img src="images/logos/iws.png" alt="IWS愛旺租車" loading="lazy" width="240" height="80" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://www.taiyu-food.com.tw/" target="_blank" rel="noopener" title="品裕素食食品">
+            <img src="images/logos/taiyu.png" alt="品裕素食食品" loading="lazy" width="200" height="160" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://topbuild.com.tw/" target="_blank" rel="noopener" title="綠藝建設">
+            <img src="images/logos/topbuild.svg" alt="綠藝建設" loading="lazy" width="127" height="39" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://www.liftcar.com.tw/" target="_blank" rel="noopener" title="翔笙國際機械">
+            <img src="images/logos/liftcar.png" alt="翔笙國際機械" loading="lazy" width="240" height="60" />
+          </a>
+        </li>
+        <li class="reveal reveal--fly">
+          <a href="https://www.doctor-lv.com/" target="_blank" rel="noopener" title="光澤晶漾診所">
+            <img src="images/logos/doctorlv.png" alt="光澤晶漾診所" loading="lazy" width="240" height="80" />
+          </a>
+        </li>
       </ul>
     </div>
   </section>
@@ -87,28 +183,51 @@
       <div class="pillars__grid">
         <article class="pillar reveal">
           <div class="pillar__icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/><path d="M16 24h16M24 16v16" stroke="currentColor" stroke-width="2"/></svg>
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="7" y="10" width="22" height="28" rx="3" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M12 17h12M12 22h12M12 27h8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <circle cx="33" cy="33" r="8" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M38.5 38.5L43 43" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
           </div>
           <h3>了解現況</h3>
           <p>盤點網站健康度、索引狀況與競爭對手落差，找出成長切入點。</p>
         </article>
         <article class="pillar reveal">
           <div class="pillar__icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="18" r="8" stroke="currentColor" stroke-width="2"/><path d="M10 38c2-8 10-12 14-12s12 4 14 12" stroke="currentColor" stroke-width="2"/></svg>
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="17" stroke="currentColor" stroke-width="1.75" stroke-opacity="0.35"/>
+              <circle cx="24" cy="24" r="11" stroke="currentColor" stroke-width="1.75" stroke-opacity="0.55"/>
+              <circle cx="24" cy="24" r="5" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="24" cy="24" r="1.75" fill="currentColor"/>
+              <path d="M24 7v4M24 37v4M7 24h4M37 24h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
           </div>
           <h3>鎖定未來客群</h3>
           <p>釐清誰會搜尋、何時搜尋、為什麼搜尋，讓內容對準決策路徑。</p>
         </article>
         <article class="pillar reveal">
           <div class="pillar__icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M12 34L24 12l12 22H12z" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="28" r="2" fill="currentColor"/></svg>
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="6" y="14" width="36" height="20" rx="10" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="16" cy="24" r="4.5" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M19.2 27.2L22 30" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M26 21.5h10M26 26.5h7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
           </div>
           <h3>主打關鍵字</h3>
           <p>篩選高意圖、可轉換的關鍵字組合，避免空泛流量虛耗預算。</p>
         </article>
         <article class="pillar reveal">
           <div class="pillar__icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="12" width="28" height="24" rx="3" stroke="currentColor" stroke-width="2"/><path d="M16 20h16M16 26h10" stroke="currentColor" stroke-width="2"/></svg>
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.75"/>
+              <path d="M8 16h32" stroke="currentColor" stroke-width="1.75"/>
+              <circle cx="12.5" cy="12" r="1.25" fill="currentColor"/>
+              <circle cx="16.5" cy="12" r="1.25" fill="currentColor" fill-opacity="0.55"/>
+              <circle cx="20.5" cy="12" r="1.25" fill="currentColor" fill-opacity="0.35"/>
+              <path d="M14 24h8v12H14zM26 22h8v6h-8zM26 32h8v4h-8z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
           </div>
           <h3>網站優化重點</h3>
           <p>結構、內容、速度與本地訊號同步調整，讓搜尋引擎更好理解你。</p>
@@ -207,6 +326,20 @@
           </article>
         </div>
       </div>
+
+      <aside class="plans__aside reveal" aria-labelledby="webhost-title">
+        <h3 id="webhost-title" class="plans__aside-title">尚無官網？也可加購網站架設</h3>
+        <p class="plans__aside-lead">若目前還沒有企業網站，我們也可協助建置，方便後續進行 SEO 優化。</p>
+        <ul class="plans__aside-list">
+          <li>專職人員建置專屬網站</li>
+          <li>提供網站後台管理系統，可自行維護網站</li>
+          <li>提供 6 頁主要頁面</li>
+          <li>續約 6,300 元起（含稅）（含網站空間、線路費）</li>
+        </ul>
+        <p class="plans__aside-more">
+          <a href="http://aaa0540000104170.sub.redwall.com.tw/index.php/web/service/" target="_blank" rel="noopener">了解網站架設服務</a>
+        </p>
+      </aside>
 
       <p class="plans__footnote reveal">我們會先了解您的產業與目標，再建議最適合的方案與關鍵字方向。實際服務內容以雙方確認為準。</p>
       <div class="plans__cta reveal">
@@ -388,6 +521,7 @@
               <option value="全方位整合方案">全方位整合方案</option>
               <option value="商搜網曝光方案">商搜網曝光方案</option>
               <option value="官網成長方案">官網成長方案</option>
+              <option value="網站架設方案">網站架設方案</option>
               <option value="尚不確定">尚不確定，想先諮詢</option>
             </select>
           </div>
@@ -412,6 +546,182 @@
       </div>
     </div>
   </section>
+
+  <!-- Footer from trade.1111.com.tw -->
+  <footer class="trade-footer d-flex justify-content-center mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-2">
+          <div class="title"><i class="fa fa-smile-o" aria-hidden="true"></i>服務專區</div>
+          <div class="row">
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://trade.1111.com.tw/company.aspx" target="_blank" rel="noopener">找公司</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://trade.1111.com.tw/goods.aspx" target="_blank" rel="noopener">找商品</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://trade.1111.com.tw/Tour" target="_blank" rel="noopener">旅遊美食優惠</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://trade.1111.com.tw/NewsList.aspx" target="_blank" rel="noopener">搜情報</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://trade.1111.com.tw/Events.aspx" target="_blank" rel="noopener">活動特輯</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://www.1111.com.tw/talents/epaper/ePaperIntro.asp?epaperNo=6" target="_blank" rel="noopener">訂閱電子報</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://www.facebook.com/trade1111" target="_blank" rel="noopener">FB粉絲專頁</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://trade.1111.com.tw/AD/TradeAD_Home1.aspx" target="_blank" rel="noopener">登廣告</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://trade.1111.com.tw/ContactUs" target="_blank" rel="noopener">聯絡我們</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://docs.google.com/forms/d/1Bm0TAOIRC0gWYsR9g8ffPAaGZcdRbR0TsGsvaoNr2Gg/viewform?c=0&amp;w=1" target="_blank" rel="noopener">滿意度調查</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="title"><i class="fa fa-globe" aria-hidden="true"></i>集團網站</div>
+          <div class="row">
+            <div class="col-6">
+              <span><a href="https://www.1111.com.tw" target="_blank" rel="noopener">1111</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111.com.tw" target="_blank" rel="noopener">人力銀行</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111tc.com.tw/" target="_blank" rel="noopener">中台灣</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111job.com.tw/index.asp" target="_blank" rel="noopener">南台灣</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://trade.1111.com.tw/" target="_self">商搜網</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111boss.com.tw" target="_blank" rel="noopener">創業加盟</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111edu.com.tw/" target="_blank" rel="noopener">進修網</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.ceu.org.tw/" target="_blank" rel="noopener">企業大學</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111transfer.com.tw/" target="_blank" rel="noopener">轉職</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111.com.tw/zone/school_fresh/" target="_blank" rel="noopener">新鮮人</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://university.1111.com.tw/Default.aspx" target="_blank" rel="noopener">大學網</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://tutor.1111.com.tw/" target="_blank" rel="noopener">家教網</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://travel.1111.com.tw/" target="_blank" rel="noopener">全球旅遊網</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="title"><i class="fa fa-globe" aria-hidden="true"></i>集團服務</div>
+          <div class="row">
+            <div class="col-6">
+              <span><a href="https://trade.1111.com.tw/RegGo.aspx" target="_blank" rel="noopener">黃頁刊登</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://trade.1111.com.tw/company.aspx" target="_blank" rel="noopener">找公司</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://trade.1111.com.tw/goods.aspx" target="_blank" rel="noopener">找商品</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://trade.1111.com.tw/Events.aspx" target="_blank" rel="noopener">線上展</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="http://aaa0540000104170.sub.redwall.com.tw/" target="_blank" rel="noopener">網站架設</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="./" target="_self">SEO優化</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111.com.tw/" target="_blank" rel="noopener">工作</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111.com.tw/" target="_blank" rel="noopener">找工作</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://recruit.1111.com.tw/" target="_blank" rel="noopener">求才</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111.com.tw/" target="_blank" rel="noopener">求職</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111.com.tw/1000w/fanshome/discuss.asp?cat=fans" target="_blank" rel="noopener">面試</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://happiness.1111.com.tw/" target="_blank" rel="noopener">幸福企業</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111.com.tw/careermaster/autobi/" target="_blank" rel="noopener">自傳範例</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://www.1111transfer.com.tw/" target="_blank" rel="noopener">轉職換工作</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://parttime.1111.com.tw/16sp/topicjob/index.asp" target="_blank" rel="noopener">開學打工</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://tutor.1111.com.tw/" target="_blank" rel="noopener">找家教</a></span>
+            </div>
+            <div class="col-6">
+              <span><a href="https://parttime.1111.com.tw/" target="_blank" rel="noopener">找工讀</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-2">
+          <div class="title"><i class="fa fa-fire" aria-hidden="true"></i>熱搜商品</div>
+          <div class="row">
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://www.1111.com.tw/corp/9997838/" target="_blank" rel="noopener">德恩堂眼鏡</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://www.taiyu-food.com.tw/" target="_blank" rel="noopener">素食</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://penghu.in/" target="_blank" rel="noopener">澎湖民宿</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://beddingworld.com.tw/" target="_blank" rel="noopener">台北床墊</a></span>
+            </div>
+            <div class="col-6 col-sm-6 col-md-12">
+              <span><a href="https://www.1111.com.tw/corp/71954758/" target="_blank" rel="noopener">南僑</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row copyright">
+        <div class="col-12 col-sm-12 col-md-6">
+          <a href="https://trade.1111.com.tw/" target="_self" title="1111 商搜網">
+            <img src="images/1111_trade-black-logo.png" title="1111 商搜網" alt="1111 商搜網" />
+          </a>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6">
+          <p>週一 ~ 週五8:30 ~ 21:00，週六、週日、國定假日9:00 ~ 17:00</p>
+          <p>電話:(02)8787-1111</p>
+          <p>全球華人股份有限公司版權所有 © 2020 1111 Job Bank All Rights</p>
+          <p>Reserved. 建議瀏覽器版本IE9.0以上</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Floating -->
   <div class="float" role="group" aria-label="快捷操作">
