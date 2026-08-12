@@ -258,7 +258,8 @@
     if (isMobilePageNav()) return 12;
     const nav = document.querySelector(".page-nav");
     const navH = nav ? nav.getBoundingClientRect().height : 64;
-    return navH + 16;
+    // Extra buffer so section titles clear the sticky bar cleanly
+    return navH + 24;
   };
 
   const scrollToAnchorId = (id, behavior = "auto") => {
@@ -267,6 +268,19 @@
     const top = Math.max(0, window.scrollY + el.getBoundingClientRect().top - getAnchorOffset());
     window.scrollTo({ top, behavior });
     return true;
+  };
+
+  const getHashIdFromHref = (href) => {
+    if (!href || href === "#") return "";
+    try {
+      const url = new URL(href, window.location.href);
+      if (url.pathname !== window.location.pathname) return "";
+      if (url.search !== window.location.search) return "";
+      if (!url.hash || url.hash.length < 2) return "";
+      return decodeURIComponent(url.hash.slice(1));
+    } catch {
+      return "";
+    }
   };
 
   // Cross-page / new-tab hash jumps can miss sticky-nav clearance; correct after layout.
@@ -295,6 +309,19 @@
       { once: true }
     );
   }
+
+  // Intercept all same-page hash links (hero CTA, buttons, page-nav, etc.)
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("a[href]");
+    if (!link) return;
+    if (event.defaultPrevented || event.button !== 0) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const id = getHashIdFromHref(link.getAttribute("href"));
+    if (!id || !document.getElementById(id)) return;
+    event.preventDefault();
+    history.pushState(null, "", `#${id}`);
+    scrollToAnchorId(id, reduceMotion ? "auto" : "smooth");
+  });
 
   // Page section nav: scroll spy active state
   const sectionNav = document.querySelector(".page-nav__sections");
@@ -351,23 +378,14 @@
       });
     };
 
-    links.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        const href = link.getAttribute("href") || "";
-        if (!href.startsWith("#") || href.length < 2) return;
-        const id = decodeURIComponent(href.slice(1));
-        if (!document.getElementById(id)) return;
-        event.preventDefault();
-        history.pushState(null, "", href);
-        scrollToAnchorId(id, reduceMotion ? "auto" : "smooth");
-        setActive(link);
-      });
-    });
-
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     window.addEventListener("hashchange", () => {
       fixHashAnchor();
+      updateFromScroll();
+    });
+    window.addEventListener("popstate", () => {
+      if (window.location.hash) fixHashAnchor();
       updateFromScroll();
     });
     updateFromScroll();

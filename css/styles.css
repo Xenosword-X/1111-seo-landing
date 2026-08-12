@@ -23,7 +23,7 @@
   --max: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   /* Sticky page-nav clearance for hash / in-page anchors */
-  --anchor-offset: 5.5rem;
+  --anchor-offset: 6rem;
 }
 
 *,
