@@ -52,6 +52,21 @@ html {
   body {
     padding-bottom: calc(var(--page-nav-bottom-h) + env(safe-area-inset-bottom, 0px));
   }
+
+  .page-nav__link--desktop-only,
+  .section--desktop-only,
+  .hero__cta-link--desktop-only,
+  .desktop-only {
+    display: none !important;
+  }
+
+  .hero__cta-link--mobile-only {
+    display: inline;
+  }
+}
+
+.hero__cta-link--mobile-only {
+  display: none;
 }
 
 body {

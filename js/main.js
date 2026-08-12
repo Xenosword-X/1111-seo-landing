@@ -99,7 +99,7 @@
     });
   }
 
-  // Contact form → FormSubmit → swordsgod@staff.1111.com.tw
+  // Contact form → FormSubmit → jerrywangtc@staff.1111.com.tw (+ CC tinapeng)
   const form = document.getElementById("contact-form");
   const success = document.getElementById("contact-success");
   const errorEl = document.getElementById("contact-error");
@@ -317,7 +317,11 @@
     if (event.defaultPrevented || event.button !== 0) return;
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const id = getHashIdFromHref(link.getAttribute("href"));
-    if (!id || !document.getElementById(id)) return;
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    // Skip anchors whose section is hidden on the current viewport (e.g. mobile-simplified pages)
+    if (getComputedStyle(target).display === "none") return;
     event.preventDefault();
     history.pushState(null, "", `#${id}`);
     scrollToAnchorId(id, reduceMotion ? "auto" : "smooth");
@@ -357,13 +361,22 @@
       }
     };
 
+    const isNavVisible = (el) => {
+      if (!el) return false;
+      return getComputedStyle(el).display !== "none" && getComputedStyle(el).visibility !== "hidden";
+    };
+
     const updateFromScroll = () => {
       if (!items.length) return;
       const y = getAnchorOffset();
-      let current = items[0];
-      for (let i = 0; i < items.length; i += 1) {
-        const top = items[i].section.getBoundingClientRect().top;
-        if (top - y <= 1) current = items[i];
+      const visibleItems = items.filter(
+        ({ link, section }) => isNavVisible(link) && isNavVisible(section)
+      );
+      if (!visibleItems.length) return;
+      let current = visibleItems[0];
+      for (let i = 0; i < visibleItems.length; i += 1) {
+        const top = visibleItems[i].section.getBoundingClientRect().top;
+        if (top - y <= 1) current = visibleItems[i];
       }
       setActive(current.link);
     };

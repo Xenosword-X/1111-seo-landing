@@ -32,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="css/styles.css?v=20260812-5" />
+  <link rel="stylesheet" href="css/styles.css?v=20260812-6" />
   <link rel="stylesheet" href="css/1111-chrome.css" />
 
   <script type="application/ld+json">
@@ -249,10 +249,10 @@
   <nav class="page-nav" aria-label="頁面導覽">
     <div class="page-nav__inner">
       <div class="page-nav__sections" aria-label="本頁區塊">
-        <a class="page-nav__link is-active" href="#top">概覽</a>
+        <a class="page-nav__link page-nav__link--desktop-only is-active" href="#top">概覽</a>
         <a class="page-nav__link" href="#what">AI SEO是什麼</a>
-        <a class="page-nav__link" href="#evolve">世代差異</a>
-        <a class="page-nav__link" href="#modules">服務模組</a>
+        <a class="page-nav__link page-nav__link--desktop-only" href="#evolve">世代差異</a>
+        <a class="page-nav__link page-nav__link--desktop-only" href="#modules">服務模組</a>
         <a class="page-nav__link" href="#faq">常見問題</a>
       </div>
       <div class="page-nav__aside">
@@ -287,7 +287,8 @@
         </ul>
         <div class="hero__cta animate__animated animate__fadeInUp" style="--animate-duration:0.7s;--animate-delay:0.4s">
           <a class="btn btn--primary" href="#contact">立即諮詢 AI SEO</a>
-          <a class="hero__cta-link" href="#modules">查看服務模組</a>
+          <a class="hero__cta-link hero__cta-link--desktop-only" href="#modules">查看服務模組</a>
+          <a class="hero__cta-link hero__cta-link--mobile-only" href="#faq">常見問題</a>
         </div>
       </div>
     </div>
@@ -344,7 +345,7 @@
     </div>
   </section>
 
-  <section class="section" id="evolve" aria-labelledby="evolve-title">
+  <section class="section section--desktop-only" id="evolve" aria-labelledby="evolve-title">
     <div class="container">
       <p class="eyebrow reveal" data-animate="fadeInUp">從第一代到下一代</p>
       <h2 id="evolve-title" class="reveal" data-animate="fadeInUp" data-delay="0.08s">傳統 SEO 沒有錯，但只做內容戰術已經不夠</h2>
@@ -374,7 +375,7 @@
     </div>
   </section>
 
-  <section class="section stats" id="modules" aria-labelledby="modules-title">
+  <section class="section stats section--desktop-only" id="modules" aria-labelledby="modules-title">
     <div class="container">
       <p class="eyebrow reveal" data-animate="fadeInUp">服務模組</p>
       <h2 id="modules-title" class="reveal" data-animate="fadeInUp" data-delay="0.08s">AI SEO 六大核心做法，讓每一次搜尋更靠近轉換</h2>
@@ -408,7 +409,7 @@
     </div>
   </section>
 
-  <section class="section" id="why" aria-labelledby="why-title">
+  <section class="section section--desktop-only" id="why" aria-labelledby="why-title">
     <div class="container">
       <p class="eyebrow reveal" data-animate="fadeInUp">為什麼選 1111</p>
       <h2 id="why-title" class="reveal" data-animate="fadeInUp" data-delay="0.08s">懂 AI SEO，也懂台灣在地商家怎麼被找到</h2>
@@ -589,8 +590,9 @@
       <h2 id="cta-title">準備好導入 AI SEO，讓品牌被搜尋與 AI 同時看見了嗎？</h2>
       <p class="cta__lead">若想洽詢 AI SEO 服務，請幫我們初步填寫以下內容（*為必填）</p>
 
-      <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/swordsgod@staff.1111.com.tw" method="POST" novalidate>
+      <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/jerrywangtc@staff.1111.com.tw" method="POST" novalidate>
         <input type="hidden" name="_subject" value="【1111 AI SEO】網站諮詢表單" />
+        <input type="hidden" name="_cc" value="tinapeng@staff.1111.com.tw" />
         <input type="hidden" name="_template" value="table" />
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -845,6 +847,6 @@
     <a class="float__btn float__btn--top" href="#top" aria-label="回到頂部">↑</a>
   </div>
 
-  <script src="js/main.js?v=20260812-5" defer></script>
+  <script src="js/main.js?v=20260812-6" defer></script>
 </body>
 </html>

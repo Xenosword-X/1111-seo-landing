@@ -32,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="css/styles.css?v=20260812-5" />
+  <link rel="stylesheet" href="css/styles.css?v=20260812-6" />
   <link rel="stylesheet" href="css/1111-chrome.css" />
 
   <script type="application/ld+json">
@@ -182,11 +182,11 @@
   <nav class="page-nav" aria-label="頁面導覽">
     <div class="page-nav__inner">
       <div class="page-nav__sections" aria-label="本頁區塊">
-        <a class="page-nav__link is-active" href="#top">概覽</a>
-        <a class="page-nav__link" href="#stats">實績</a>
+        <a class="page-nav__link page-nav__link--desktop-only is-active" href="#top">概覽</a>
+        <a class="page-nav__link page-nav__link--desktop-only" href="#stats">實績</a>
         <a class="page-nav__link" href="#pillars">服務流程</a>
-        <a class="page-nav__link" href="#plans">服務方案</a>
-        <a class="page-nav__link" href="#cases">客戶案例</a>
+        <a class="page-nav__link page-nav__link--desktop-only" href="#plans">服務方案</a>
+        <a class="page-nav__link page-nav__link--desktop-only" href="#cases">客戶案例</a>
         <a class="page-nav__link" href="#google">Google商家</a>
       </div>
       <div class="page-nav__aside">
@@ -221,14 +221,15 @@
         </ul>
         <div class="hero__cta animate__animated animate__fadeInUp" style="--animate-duration:0.7s;--animate-delay:0.4s">
           <a class="btn btn--primary" href="#contact">立即諮詢 SEO 服務</a>
-          <a class="hero__cta-link" href="#plans">查看方案與費用</a>
+          <a class="hero__cta-link hero__cta-link--desktop-only" href="#plans">查看方案與費用</a>
+          <a class="hero__cta-link hero__cta-link--mobile-only" href="#pillars">查看服務流程</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- S2 Stats -->
-  <section class="section stats" id="stats" aria-labelledby="stats-title">
+  <section class="section stats section--desktop-only" id="stats" aria-labelledby="stats-title">
     <div class="container">
       <p class="eyebrow reveal" data-animate="fadeInUp">SEO 公司實績</p>
       <h2 id="stats-title" class="reveal" data-animate="fadeInUp" data-delay="0.08s">累積數百站 SEO 服務經驗，含關鍵字優化與 Google 商家優化</h2>
@@ -246,7 +247,7 @@
   </section>
 
   <!-- S3 Logo marquee -->
-  <section class="section logos" id="logos" aria-labelledby="logos-title">
+  <section class="section logos section--desktop-only" id="logos" aria-labelledby="logos-title">
     <div class="container">
       <h2 id="logos-title" class="reveal" data-animate="fadeInUp">各產業都找得到適合的 SEO 優化公司經驗</h2>
       <p class="section__sub reveal" data-animate="fadeInUp" data-delay="0.08s">依實際 SEO 服務客戶統整：機械設備、化學化工、餐飲食品、牙醫醫美、運輸租車、廚具家電、專業服務等多元產業</p>
@@ -533,7 +534,7 @@
   </section>
 
   <!-- Plans -->
-  <section class="section plans" id="plans" aria-labelledby="plans-title">
+  <section class="section plans section--desktop-only" id="plans" aria-labelledby="plans-title">
     <div class="container">
       <p class="eyebrow reveal" data-animate="fadeInUp">SEO 方案與費用</p>
       <h2 id="plans-title" class="reveal" data-animate="fadeInUp" data-delay="0.08s">選擇適合您的 SEO 服務方案</h2>
@@ -642,7 +643,7 @@
   </section>
 
   <!-- S5 Cases zigzag -->
-  <section class="section cases" id="cases" aria-labelledby="cases-title">
+  <section class="section cases section--desktop-only" id="cases" aria-labelledby="cases-title">
     <div class="container">
       <h2 id="cases-title" class="reveal" data-animate="fadeInUp">為什麼企業會推薦這間 SEO 公司</h2>
       <p class="section__sub reveal" data-animate="fadeInUp" data-delay="0.08s">真實產業案例：關鍵字優化進第一頁後，流量與詢問看得見的成長</p>
@@ -748,7 +749,7 @@
     </div>
   </section>
 
-  <section class="section bridge" aria-labelledby="bridge-title">
+  <section class="section bridge section--desktop-only" aria-labelledby="bridge-title">
     <div class="container">
       <p class="eyebrow reveal" data-animate="fadeInUp">搜尋已進入 AI 時代</p>
       <h2 id="bridge-title" class="reveal" data-animate="fadeInUp" data-delay="0.08s">SEO 服務之後，也要佈局 AI SEO</h2>
@@ -766,9 +767,10 @@
       <h2 id="cta-title">準備好委託 SEO 服務，讓客戶主動找到您了嗎？</h2>
       <p class="cta__lead">想比較 SEO 公司、了解方案與報價，請先填寫以下內容（*為必填），顧問將盡快聯繫您</p>
 
-      <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/swordsgod@staff.1111.com.tw" method="POST" novalidate>
+      <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/jerrywangtc@staff.1111.com.tw" method="POST" novalidate>
         <!-- FormSubmit config -->
         <input type="hidden" name="_subject" value="【1111 SEO服務】網站諮詢表單" />
+        <input type="hidden" name="_cc" value="tinapeng@staff.1111.com.tw" />
         <input type="hidden" name="_template" value="table" />
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -1024,6 +1026,6 @@
     <a class="float__btn float__btn--top" href="#top" aria-label="回到頂部">↑</a>
   </div>
 
-  <script src="js/main.js?v=20260812-5" defer></script>
+  <script src="js/main.js?v=20260812-6" defer></script>
 </body>
 </html>
