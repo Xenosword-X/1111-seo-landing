@@ -99,7 +99,7 @@
     });
   }
 
-  // Contact form → FormSubmit → jerrywangtc@staff.1111.com.tw (+ CC tinapeng)
+  // Contact form → FormSubmit → swordsgod@staff.1111.com.tw (+ CC Questa)
   const form = document.getElementById("contact-form");
   const success = document.getElementById("contact-success");
   const errorEl = document.getElementById("contact-error");
