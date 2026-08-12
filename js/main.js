@@ -250,6 +250,52 @@
     }
   }
 
+  // Sticky page-nav offset for anchors + scroll spy (keep in sync with --anchor-offset)
+  const isMobilePageNav = () => window.matchMedia("(max-width: 900px)").matches;
+
+  const getAnchorOffset = () => {
+    // Mobile: section nav is fixed to the bottom, so only a small top clearance is needed.
+    if (isMobilePageNav()) return 12;
+    const nav = document.querySelector(".page-nav");
+    const navH = nav ? nav.getBoundingClientRect().height : 64;
+    return navH + 16;
+  };
+
+  const scrollToAnchorId = (id, behavior = "auto") => {
+    const el = document.getElementById(id);
+    if (!el) return false;
+    const top = Math.max(0, window.scrollY + el.getBoundingClientRect().top - getAnchorOffset());
+    window.scrollTo({ top, behavior });
+    return true;
+  };
+
+  // Cross-page / new-tab hash jumps can miss sticky-nav clearance; correct after layout.
+  const fixHashAnchor = () => {
+    const hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    const id = decodeURIComponent(hash.slice(1));
+    scrollToAnchorId(id, "auto");
+  };
+
+  if (window.location.hash) {
+    const html = document.documentElement;
+    const prevBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+    fixHashAnchor();
+    requestAnimationFrame(fixHashAnchor);
+    window.addEventListener(
+      "load",
+      () => {
+        fixHashAnchor();
+        window.setTimeout(() => {
+          fixHashAnchor();
+          html.style.scrollBehavior = prevBehavior;
+        }, 80);
+      },
+      { once: true }
+    );
+  }
+
   // Page section nav: scroll spy active state
   const sectionNav = document.querySelector(".page-nav__sections");
   if (sectionNav) {
@@ -269,20 +315,28 @@
         if (on) link.setAttribute("aria-current", "true");
         else link.removeAttribute("aria-current");
       });
-    };
-
-    const navOffset = () => {
-      const nav = document.querySelector(".page-nav");
-      return (nav ? nav.getBoundingClientRect().height : 64) + 12;
+      // Keep the active tab visible inside the mobile bottom scroller
+      if (activeLink && isMobilePageNav() && sectionNav) {
+        const scroller = sectionNav.closest(".page-nav__inner") || sectionNav;
+        const linkRect = activeLink.getBoundingClientRect();
+        const scrollerRect = scroller.getBoundingClientRect();
+        if (linkRect.left < scrollerRect.left + 12 || linkRect.right > scrollerRect.right - 12) {
+          activeLink.scrollIntoView({
+            inline: "center",
+            block: "nearest",
+            behavior: reduceMotion ? "auto" : "smooth",
+          });
+        }
+      }
     };
 
     const updateFromScroll = () => {
       if (!items.length) return;
-      const y = navOffset();
+      const y = getAnchorOffset();
       let current = items[0];
       for (let i = 0; i < items.length; i += 1) {
         const top = items[i].section.getBoundingClientRect().top;
-        if (top - y <= 0) current = items[i];
+        if (top - y <= 1) current = items[i];
       }
       setActive(current.link);
     };
@@ -298,11 +352,24 @@
     };
 
     links.forEach((link) => {
-      link.addEventListener("click", () => setActive(link));
+      link.addEventListener("click", (event) => {
+        const href = link.getAttribute("href") || "";
+        if (!href.startsWith("#") || href.length < 2) return;
+        const id = decodeURIComponent(href.slice(1));
+        if (!document.getElementById(id)) return;
+        event.preventDefault();
+        history.pushState(null, "", href);
+        scrollToAnchorId(id, reduceMotion ? "auto" : "smooth");
+        setActive(link);
+      });
     });
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    window.addEventListener("hashchange", () => {
+      fixHashAnchor();
+      updateFromScroll();
+    });
     updateFromScroll();
   }
 
