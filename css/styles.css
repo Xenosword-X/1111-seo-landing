@@ -4,12 +4,17 @@
   --color-secondary: #334155;
   --color-accent: #0369a1;
   --color-accent-hover: #075985;
+  /* Brand red: --brand for fills, --brand-deep for text on light backgrounds */
+  --color-brand: #e31c23;
+  --color-brand-deep: #b01018;
+  /* Error states keep a lighter, separate red so red still reads as "alert" */
+  --color-danger: #f87171;
+  --color-danger-mark: #fca5a5;
+  --color-danger-ink: #fecaca;
   --color-background: #f8fafc;
   --color-foreground: #020617;
   --color-muted: #e8ecf1;
   --color-border: #e2e8f0;
-  --color-hero: #3a2a1f;
-  --color-hero-ink: #f3e9d7;
   --color-logos: #1e4f7a;
   --color-stat: #1e293b;
   --font: "Plus Jakarta Sans", "Noto Sans TC", sans-serif;
@@ -94,6 +99,18 @@ h3 {
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin: 0 0 var(--space-2);
+}
+
+/* Section H2 uses the deep brand red on light backgrounds */
+.section > .container > h2,
+.google__copy > h2 {
+  color: var(--color-brand-deep);
+}
+
+/* Dark sections keep light ink — red on navy drops below 3:1 */
+.logos > .container > h2,
+.cta > .container > h2 {
+  color: inherit;
 }
 
 p {
@@ -187,8 +204,6 @@ p {
   --hero-bg: #01081b;
   --hero-cream: #f5f0e8;
   --hero-yellow: #f0d45a;
-  --brand-red: #e31c23;
-  --brand-red-deep: #b01018;
   --hero-max: 1180px;
   color: var(--hero-cream);
   background: var(--hero-bg);
@@ -536,15 +551,20 @@ p {
 .logo-tile__name {
   color: var(--tile-color, #1a1a1a);
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  font-size: 0.92rem;
+  font-size: 1.18rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+}
+
+.logo-tile--compact .logo-tile__name {
+  font-size: 1rem;
+  letter-spacing: 0;
 }
 
 .logo-tile__en {
   color: #6b7280;
   font-family: "Plus Jakarta Sans", Arial, sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -830,7 +850,7 @@ p {
 .case__media {
   min-height: 280px;
   overflow: hidden;
-  background: #e8ecf1;
+  background: var(--color-muted);
   border: 1px solid var(--color-border);
 }
 
@@ -1115,7 +1135,7 @@ p {
 }
 
 .field label span {
-  color: #fca5a5;
+  color: var(--color-danger-mark);
   margin-left: 0.15rem;
 }
 
@@ -1176,17 +1196,17 @@ p {
 .field input.is-invalid,
 .field select.is-invalid,
 .field textarea.is-invalid {
-  border-color: #f87171;
-  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-danger) 20%, transparent);
 }
 
 .contact-form__error {
   margin: 1rem 0 0;
   padding: 0.75rem 1rem;
-  background: rgba(248, 113, 113, 0.15);
-  border: 1px solid rgba(248, 113, 113, 0.45);
+  background: color-mix(in srgb, var(--color-danger) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-danger) 45%, transparent);
   border-radius: var(--radius);
-  color: #fecaca;
+  color: var(--color-danger-ink);
   font-size: 1rem;
   font-weight: 600;
 }
@@ -1655,7 +1675,7 @@ p {
 
 .pain-card {
   padding: var(--space-3) 0 0;
-  border-top: 2px solid #b91c1c;
+  border-top: 2px solid var(--color-brand-deep);
 }
 
 .pain-card h3 {
