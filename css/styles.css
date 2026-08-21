@@ -416,6 +416,12 @@ p {
   margin-inline: auto;
 }
 
+.stats .section__sub {
+  max-width: 50rem;
+  margin-inline: auto;
+  text-wrap: pretty;
+}
+
 .stats__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
