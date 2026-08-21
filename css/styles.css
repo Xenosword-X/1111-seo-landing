@@ -132,19 +132,6 @@ p {
   margin-bottom: var(--space-4);
 }
 
-.plans > .container > .section__sub,
-.stats > .container > .section__sub {
-  max-width: none;
-  white-space: nowrap;
-}
-
-@media (max-width: 900px) {
-  .plans > .container > .section__sub,
-  .stats > .container > .section__sub {
-    white-space: normal;
-  }
-}
-
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -220,6 +207,10 @@ p {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   isolation: isolate;
+}
+
+.hero:not(.hero--aiseo) .hero__frame {
+  aspect-ratio: 2360 / 800;
 }
 
 .hero__visual {
@@ -421,7 +412,7 @@ p {
 
 .stats h2 {
   font-size: clamp(1.5rem, 3vw, 2rem);
-  max-width: 22ch;
+  max-width: 36rem;
   margin-inline: auto;
 }
 
@@ -803,6 +794,76 @@ p {
   margin-top: var(--space-2);
 }
 
+.plans-table-wrap {
+  margin-top: var(--space-5);
+}
+
+.plans-table__title {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.plans-table__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.plans-table {
+  width: 100%;
+  min-width: 52rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.plans-table th,
+.plans-table td {
+  padding: 0.85rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.plans-table thead th {
+  background: var(--color-muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.plans-table tbody th {
+  font-weight: 800;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.plans-table tbody td {
+  color: var(--color-secondary);
+}
+
+.plans-table__featured th,
+.plans-table__featured td {
+  background: #f0f7fb;
+}
+
+.plans-table__featured th::before {
+  content: "★ ";
+  color: var(--color-accent);
+}
+
+.plans-table__yes {
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.plans-table__no {
+  color: #94a3b8;
+}
+
 @media (max-width: 900px) {
   .plans__grid--main,
   .plans__grid--alt {
@@ -1145,6 +1206,17 @@ p {
   margin: 0;
   padding: 0 0.15rem 1.2rem;
   max-width: 46rem;
+}
+
+.faq__a a {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.faq__a a:hover {
+  color: var(--color-accent-hover);
 }
 
 @media (prefers-reduced-motion: reduce) {
