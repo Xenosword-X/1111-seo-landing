@@ -410,10 +410,16 @@ p {
   text-align: center;
 }
 
-.stats h2 {
+.stats h2,
+.stats .stats__lead {
+  display: block;
   font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-brand-deep);
   max-width: 36rem;
-  margin-inline: auto;
+  margin: 0 auto var(--space-2);
 }
 
 .stats .section__sub {
